@@ -153,6 +153,54 @@ src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
 
+src/ResourceManager.o: src/ResourceManager.cpp.o
+.PHONY : src/ResourceManager.o
+
+# target to build an object file
+src/ResourceManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o
+.PHONY : src/ResourceManager.cpp.o
+
+src/ResourceManager.i: src/ResourceManager.cpp.i
+.PHONY : src/ResourceManager.i
+
+# target to preprocess a source file
+src/ResourceManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.i
+.PHONY : src/ResourceManager.cpp.i
+
+src/ResourceManager.s: src/ResourceManager.cpp.s
+.PHONY : src/ResourceManager.s
+
+# target to generate assembly for a file
+src/ResourceManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.s
+.PHONY : src/ResourceManager.cpp.s
+
+src/TileMap.o: src/TileMap.cpp.o
+.PHONY : src/TileMap.o
+
+# target to build an object file
+src/TileMap.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o
+.PHONY : src/TileMap.cpp.o
+
+src/TileMap.i: src/TileMap.cpp.i
+.PHONY : src/TileMap.i
+
+# target to preprocess a source file
+src/TileMap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.i
+.PHONY : src/TileMap.cpp.i
+
+src/TileMap.s: src/TileMap.cpp.s
+.PHONY : src/TileMap.s
+
+# target to generate assembly for a file
+src/TileMap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.s
+.PHONY : src/TileMap.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -189,6 +237,12 @@ help:
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
+	@echo "... src/ResourceManager.o"
+	@echo "... src/ResourceManager.i"
+	@echo "... src/ResourceManager.s"
+	@echo "... src/TileMap.o"
+	@echo "... src/TileMap.i"
+	@echo "... src/TileMap.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

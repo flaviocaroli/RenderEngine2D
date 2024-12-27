@@ -9,6 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/Game.cpp" "CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o" "gcc" "CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o.d"
+  "/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/ResourceManager.cpp" "CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o" "gcc" "CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o.d"
+  "/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/TileMap.cpp" "CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o" "gcc" "CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o.d"
   "/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/main.cpp" "CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o" "gcc" "CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o.d"
   )
 

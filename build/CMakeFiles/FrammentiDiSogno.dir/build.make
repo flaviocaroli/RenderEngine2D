@@ -97,19 +97,51 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/Game.cpp -o CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.s
 
+CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o: CMakeFiles/FrammentiDiSogno.dir/flags.make
+CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o: ../src/ResourceManager.cpp
+CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o: CMakeFiles/FrammentiDiSogno.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o -MF CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o.d -o CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o -c /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/ResourceManager.cpp
+
+CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/ResourceManager.cpp > CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.i
+
+CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/ResourceManager.cpp -o CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.s
+
+CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o: CMakeFiles/FrammentiDiSogno.dir/flags.make
+CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o: ../src/TileMap.cpp
+CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o: CMakeFiles/FrammentiDiSogno.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o -MF CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o.d -o CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o -c /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/TileMap.cpp
+
+CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/TileMap.cpp > CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.i
+
+CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/TileMap.cpp -o CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.s
+
 # Object files for target FrammentiDiSogno
 FrammentiDiSogno_OBJECTS = \
 "CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o" \
-"CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o"
+"CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o" \
+"CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o" \
+"CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o"
 
 # External object files for target FrammentiDiSogno
 FrammentiDiSogno_EXTERNAL_OBJECTS =
 
 FrammentiDiSogno: CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o
 FrammentiDiSogno: CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o
+FrammentiDiSogno: CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o
+FrammentiDiSogno: CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o
 FrammentiDiSogno: CMakeFiles/FrammentiDiSogno.dir/build.make
 FrammentiDiSogno: CMakeFiles/FrammentiDiSogno.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable FrammentiDiSogno"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable FrammentiDiSogno"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FrammentiDiSogno.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,8 +1,9 @@
 #include "Game.hpp"
+#include "ResourceManager.hpp"
 #include <iostream>
 
 Game::Game()
-    :window(nullptr), renderer(nullptr), running(false)
+    :window(nullptr), renderer(nullptr), running(false), tileMap(nullptr)
 {}
 
 Game::~Game() {
@@ -28,10 +29,26 @@ bool Game::init(const std::string& title, int width, int height){
         std::cerr << "Renderer Not working" << SDL_GetError() <<"\n";
         return false;
     }
-    running =true;
-    return true;
 
+    running = true;
+
+
+    tileMap = new TileMap(renderer, "/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D//assets/FieldsTileset.png", 32, 32);
+
+    std::vector<std::vector<int>> mapData = {
+        {0, 1, 2, 3, 0, 1, 2, 3},
+        {0, 1, 2, 3, 0, 1, 2, 3},
+        {2, 3, 0, 1, 2, 3, 0, 1},
+        {2, 3, 0, 1, 2, 3, 0, 1},
+        {0, 1, 2, 3, 0, 1, 2, 3},
+        {0, 1, 2, 3, 0, 1, 2, 3}
+    };
+
+    tileMap->loadMap(mapData);
+    return true;
+    
 }   
+
 void Game::handleEvents(){
     SDL_Event event;
     while(SDL_PollEvent(&event)){
@@ -55,12 +72,24 @@ void Game::render(){
     SDL_RenderClear(renderer);
 
     //TODO : render game objects
+    if(tileMap){
+        tileMap->render(0, 0);
+    }
 
     SDL_RenderPresent(renderer);
 
 }
 
 void Game::clean(){
+
+    if(tileMap){ 
+        delete tileMap;
+        tileMap = nullptr;
+    }
+
+    //Destroy textures
+    ResourceManager::clear();
+
     if(renderer){
         SDL_DestroyRenderer(renderer);
         renderer = nullptr;

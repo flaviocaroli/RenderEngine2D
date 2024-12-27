@@ -1,7 +1,7 @@
-CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: \
- /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/Game.cpp \
+CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o: \
+ /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/src/ResourceManager.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/Game.hpp \
+ /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/ResourceManager.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -214,6 +214,7 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: \
  /usr/include/SDL2/SDL_shape.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
  /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
+ /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
  /usr/include/c++/11/string /usr/include/c++/11/bits/stringfwd.h \
  /usr/include/c++/11/bits/memoryfwd.h \
  /usr/include/c++/11/bits/char_traits.h \
@@ -263,13 +264,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/TileMap.hpp \
- /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
- /usr/include/c++/11/bits/stl_vector.h \
- /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc \
- /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/ResourceManager.hpp \
- /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
  /usr/include/c++/11/unordered_map \
  /usr/include/c++/11/ext/aligned_buffer.h \
  /usr/include/c++/11/bits/hashtable.h \
@@ -281,6 +275,7 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/memory \
+ /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \

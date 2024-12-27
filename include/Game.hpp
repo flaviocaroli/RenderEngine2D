@@ -3,12 +3,15 @@
 
 #include <SDL2/SDL.h> 
 #include <string>
+#include "TileMap.hpp"
 
 class Game {
 private:
     SDL_Window* window;
     SDL_Renderer* renderer;
     bool running;
+
+    TileMap* tileMap;
 
 public:
     Game();
