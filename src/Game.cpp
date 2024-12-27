@@ -9,7 +9,7 @@ Game::~Game() {
     clean();
 }
 
-bool Game::init(std::string& title, int width, int height){
+bool Game::init(const std::string& title, int width, int height){
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0) {
         std::cerr << "SDL did not initialize" << SDL_GetError() << "\n";
         return false;
@@ -51,7 +51,7 @@ void Game::update(){
 
 void Game::render(){
     //clear Screen
-    SDL_SetRenderDrawColor(renderer, 50,50,50,255):
+    SDL_SetRenderDrawColor(renderer, 50,50,50,255);
     SDL_RenderClear(renderer);
 
     //TODO : render game objects
@@ -62,11 +62,11 @@ void Game::render(){
 
 void Game::clean(){
     if(renderer){
-        SDL_DestroyRenderer();
+        SDL_DestroyRenderer(renderer);
         renderer = nullptr;
     }
     if(window){
-        SDL_DestroyWindow();
+        SDL_DestroyWindow(window);
         window = nullptr;
     }
 

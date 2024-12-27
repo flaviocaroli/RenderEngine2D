@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/usr/include/SDL2 -I/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include
 
-CXX_FLAGS = -std=gnu++17
+CXX_FLAGS = 
 

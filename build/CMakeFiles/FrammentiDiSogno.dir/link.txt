@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o -o FrammentiDiSogno  -L/usr/lib/x86_64-linux-gnu  -lSDL2 

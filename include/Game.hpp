@@ -14,7 +14,7 @@ public:
     Game();
     ~Game();
 
-    void init(const std::string& title, int width, int height);
+    bool init(const std::string& title, int width, int height);
     void handleEvents();
     void render();
     void clean();
@@ -23,3 +23,4 @@ public:
     bool isRunning() const {return running;}
 };
     
+#endif

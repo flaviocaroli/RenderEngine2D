@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     }
     while(game.isRunning()){
         game.handleEvents();
-        game.updaate();
+        game.update();
         game.render();
     }    
 
