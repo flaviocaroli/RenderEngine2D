@@ -15,11 +15,12 @@ TileMap::TileMap(SDL_Renderer* renderer, const std::string& tilesetFile, int til
         SDL_QueryTexture(tileset, nullptr, nullptr, &texW, &texH);
         // Number of columns in the tileset
         tilesetCols = texW / tileWidth;
-        std::cout << "texW=" << texW << ", texH=" << texH 
-          << ", tileWidth=" << tileWidth 
-          << ", tileHeight=" << tileHeight 
-          << ", tilesetCols=" << tilesetCols << std::endl;
-
+        /* debug print
+        //  std::cout << "texW=" << texW << ", texH=" << texH 
+        //  << ", tileWidth=" << tileWidth 
+        //  << ", tileHeight=" << tileHeight 
+        //  << ", tilesetCols=" << tilesetCols << std::endl;
+        */
     }
 }
 
@@ -32,8 +33,8 @@ void TileMap::render(int offsetX, int offsetY){
         return;
     }
     // Go through each tile in 'tiles'
-    for(int row; row < (int)tiles.size(); ++row) {
-        for(int col; col < (int)tiles[row].size(); ++col) {
+    for(int row = 0; row < (int)tiles.size(); ++row) {
+        for(int col = 0; col < (int)tiles[row].size(); ++col) {
             int index = tiles[row][col];
             if(index < 0 ){
                 continue; //skip empty or invalid 

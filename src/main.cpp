@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]) {
     Game game;
-    if(!game.init("Frammenti di Sogno", 800, 600)){
+    if(!game.init("Frammenti di Sogno", 600, 600)){
         return -1;
     }
     while(game.isRunning()){
