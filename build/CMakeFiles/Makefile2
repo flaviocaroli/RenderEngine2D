@@ -81,12 +81,12 @@ clean: CMakeFiles/FrammentiDiSogno.dir/clean
 CMakeFiles/FrammentiDiSogno.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target FrammentiDiSogno"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target FrammentiDiSogno"
 .PHONY : CMakeFiles/FrammentiDiSogno.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/FrammentiDiSogno.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/FrammentiDiSogno.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles 0
 .PHONY : CMakeFiles/FrammentiDiSogno.dir/rule

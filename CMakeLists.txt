@@ -16,6 +16,8 @@ add_executable(FrammentiDiSogno
     src/Game.cpp
     src/ResourceManager.cpp
     src/TileMap.cpp
+    src/Entity.cpp
+    src/Player.cpp
 )
 
 target_include_directories(FrammentiDiSogno PUBLIC

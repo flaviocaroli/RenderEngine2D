@@ -6,8 +6,15 @@
 static const int tileWidth  = 32;
 static const int tileHeight = 32;
 
+
 Game::Game()
-    :window(nullptr), renderer(nullptr), running(false), tileMap(nullptr)
+    :window(nullptr),
+     renderer(nullptr),
+     running(false), 
+     tileMap(nullptr),
+     player(nullptr),
+     cameraX(0),
+     cameraY(0)
 {}
 
 Game::~Game() {
@@ -43,8 +50,8 @@ bool Game::init(const std::string& title, int width, int height){
     int windowH = 0;
     SDL_GetWindowSize(window, &windowW, &windowH);
 
-    int tilesWide = (windowW  + tileWidth  - 1) / tileWidth;  // round up
-    int tilesHigh = (windowH + tileHeight - 1) / tileHeight; // round up
+    int tilesWide = ((windowW + tileWidth  - 1) / tileWidth);  // round up
+    int tilesHigh = ((windowH + tileHeight - 1) / tileHeight); // round up
 
 
     // Build initial map data with 64 tiles.
@@ -56,9 +63,14 @@ bool Game::init(const std::string& title, int width, int height){
     }
 
     tileMap->loadMap(mapData);
+
+    // Create the player at some position in world space (e.g., near top-left).
+    // We'll assume each player sprite is also 32x32 for simplicity.
+    player = new Player("../assets/player_down.png", renderer, 50, 50, 32, 32);  
+
     return true;
-    
-}   
+
+}
 
 void Game::handleEvents(){
     SDL_Event event;
@@ -67,9 +79,15 @@ void Game::handleEvents(){
             case SDL_QUIT:
                 running = false;
                 break;
-
+            case SDL_KEYDOWN:
+            case SDL_KEYUP:
+                if(player) {
+                    player->handleEvent(event);
+                }
+                break;
             //to resize window
             case SDL_WINDOWEVENT:
+
                 if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
                     int newW = event.window.data1;
                     int newH = event.window.data2;
@@ -97,6 +115,16 @@ void Game::handleEvents(){
 
 void Game::update(){
     // Logic updates (NPc mmovements, physics, etc)
+    //camera motion according to player movement
+    if(player) {
+        int windowW = 600;
+        int windowH = 600;
+        //center camera on the player
+        cameraX = player->getX() - (windowW /2) + 16;
+        cameraY = player->getY() - (windowH /2) + 16;
+        //clamp camera so it doesn't go beyond the map edges
+
+    }
 }
 
 void Game::render(){
@@ -106,7 +134,11 @@ void Game::render(){
 
     //TODO : render game objects
     if(tileMap){
-        tileMap->render(0, 0);
+        tileMap->render(cameraX, cameraY);
+    }
+
+    if (player) {
+        player->render(cameraX, cameraY);
     }
 
     SDL_RenderPresent(renderer);

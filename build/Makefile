@@ -129,6 +129,30 @@ FrammentiDiSogno/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/build
 .PHONY : FrammentiDiSogno/fast
 
+src/Entity.o: src/Entity.cpp.o
+.PHONY : src/Entity.o
+
+# target to build an object file
+src/Entity.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Entity.cpp.o
+.PHONY : src/Entity.cpp.o
+
+src/Entity.i: src/Entity.cpp.i
+.PHONY : src/Entity.i
+
+# target to preprocess a source file
+src/Entity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Entity.cpp.i
+.PHONY : src/Entity.cpp.i
+
+src/Entity.s: src/Entity.cpp.s
+.PHONY : src/Entity.s
+
+# target to generate assembly for a file
+src/Entity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Entity.cpp.s
+.PHONY : src/Entity.cpp.s
+
 src/Game.o: src/Game.cpp.o
 .PHONY : src/Game.o
 
@@ -152,6 +176,30 @@ src/Game.s: src/Game.cpp.s
 src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
+
+src/Player.o: src/Player.cpp.o
+.PHONY : src/Player.o
+
+# target to build an object file
+src/Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Player.cpp.o
+.PHONY : src/Player.cpp.o
+
+src/Player.i: src/Player.cpp.i
+.PHONY : src/Player.i
+
+# target to preprocess a source file
+src/Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Player.cpp.i
+.PHONY : src/Player.cpp.i
+
+src/Player.s: src/Player.cpp.s
+.PHONY : src/Player.s
+
+# target to generate assembly for a file
+src/Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Player.cpp.s
+.PHONY : src/Player.cpp.s
 
 src/ResourceManager.o: src/ResourceManager.cpp.o
 .PHONY : src/ResourceManager.o
@@ -234,9 +282,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... FrammentiDiSogno"
+	@echo "... src/Entity.o"
+	@echo "... src/Entity.i"
+	@echo "... src/Entity.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
+	@echo "... src/Player.o"
+	@echo "... src/Player.i"
+	@echo "... src/Player.s"
 	@echo "... src/ResourceManager.o"
 	@echo "... src/ResourceManager.i"
 	@echo "... src/ResourceManager.s"

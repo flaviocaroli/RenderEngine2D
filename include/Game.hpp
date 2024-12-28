@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h> 
 #include <string>
 #include "TileMap.hpp"
+#include "Player.hpp"
 
 class Game {
 private:
@@ -12,7 +13,12 @@ private:
     bool running;
 
     TileMap* tileMap;
+    Player* player;
 
+    //what to see according to player position
+    int cameraX;
+    int cameraY;
+    
 public:
     Game();
     ~Game();
