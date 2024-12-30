@@ -1,3 +1,5 @@
+//Entity.cpp
+
 #include "Entity.hpp"
 #include "ResourceManager.hpp"
 #include <SDL2/SDL.h>

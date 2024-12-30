@@ -1,3 +1,6 @@
+//TileMap.cpp
+
+
 #include "TileMap.hpp"
 #include "ResourceManager.hpp"
 #include <SDL2/SDL.h>
@@ -46,8 +49,8 @@ void TileMap::render(int offsetX, int offsetY){
             SDL_Rect srcRect { srcX, srcY, tileWidth, tileHeight};
             // destination rectangle on screen
             SDL_Rect dstRect {
-                col* tileWidth,
-                row * tileHeight,
+                col* tileWidth - offsetX,
+                row * tileHeight -offsetY,
                 tileWidth,
                 tileHeight
             };

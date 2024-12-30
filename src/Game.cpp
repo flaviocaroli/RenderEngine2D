@@ -1,3 +1,5 @@
+//Game.cpp
+
 #include "Game.hpp"
 #include "ResourceManager.hpp"
 #include <iostream>
@@ -117,6 +119,9 @@ void Game::update(){
     // Logic updates (NPc mmovements, physics, etc)
     //camera motion according to player movement
     if(player) {
+
+        player->update();
+
         int windowW = 600;
         int windowH = 600;
         //center camera on the player
@@ -124,6 +129,23 @@ void Game::update(){
         cameraY = player->getY() - (windowH /2) + 16;
         //clamp camera so it doesn't go beyond the map edges
 
+        int tilesWide = ((windowW + tileWidth  - 1) / tileWidth);  // round up
+        int tilesHigh = ((windowH + tileHeight - 1) / tileHeight); // round up
+        int mapWidth  = tilesWide  * tileWidth;
+        int mapHeight = tilesHigh  * tileHeight;
+
+        if (cameraX < 0) {
+            cameraX = 0;
+        }
+        if (cameraY < 0){
+            cameraY = 0;
+        }
+        if (cameraX > mapWidth  - windowW){
+            cameraX = mapWidth - windowW;
+        }
+        if (cameraY > mapHeight  - windowH){
+            cameraY = mapHeight - windowH;
+        }
     }
 }
 
