@@ -68,7 +68,9 @@ bool Game::init(const std::string& title, int width, int height){
 
     // Create the player at some position in world space (e.g., near top-left).
     // We'll assume each player sprite is also 32x32 for simplicity.
-    player = new Player("../assets/player_down.png", renderer, 50, 50, 32, 32);  
+    player = new Player("../assets/Unarmed_Idle.png",
+                        "../assets/Unarmed_Walk.png",
+                        renderer, 50, 50, 128, 128);  
 
     return true;
 
@@ -122,8 +124,8 @@ void Game::update(){
 
         player->update();
 
-        int windowW = 600;
-        int windowH = 600;
+        int windowW = 0, windowH = 0;
+        SDL_GetWindowSize(window, &windowW, &windowH);
         //center camera on the player
         cameraX = player->getX() - (windowW /2) + 16;
         cameraY = player->getY() - (windowH /2) + 16;

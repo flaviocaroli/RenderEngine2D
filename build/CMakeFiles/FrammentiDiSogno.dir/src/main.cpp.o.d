@@ -290,4 +290,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/vector.tcc \
  /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/Player.hpp \
  /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/Entity.hpp \
- /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h
+ /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
+ /usr/include/c++/11/array /usr/include/c++/11/utility \
+ /usr/include/c++/11/bits/stl_relops.h
