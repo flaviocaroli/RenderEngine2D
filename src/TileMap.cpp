@@ -31,6 +31,15 @@ void TileMap::loadMap(const std::vector<std::vector<int>>& mapData) {
     tiles = mapData;
 }
 
+int TileMap::getRows() const {
+    // The number of rows is just the size of 'tiles'
+    return (int)tiles.size();
+}
+
+int TileMap::getCols() const {
+    return (int)tiles[0].size();
+}
+
 void TileMap::render(int offsetX, int offsetY){
     if(!tileset){
         return;

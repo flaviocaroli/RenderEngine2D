@@ -292,4 +292,5 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: \
  /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/Entity.hpp \
  /usr/include/SDL2/SDL_image.h /usr/include/SDL2/SDL.h \
  /usr/include/c++/11/array /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h
+ /usr/include/c++/11/bits/stl_relops.h \
+ /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/CollisionManager.hpp

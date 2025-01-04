@@ -5,6 +5,7 @@
 #include <string>
 #include "TileMap.hpp"
 #include "Player.hpp"
+#include "CollisionManager.hpp"
 
 class Game {
 private:
@@ -15,9 +16,16 @@ private:
     TileMap* tileMap;
     Player* player;
 
+
     //what to see according to player position
     int cameraX;
     int cameraY;
+
+    CollisionManager collisionManager;
+
+    // store these so we can reference them when resizing the Game Window
+    static const int tileWidth  = 32;
+    static const int tileHeight = 32;
     
 public:
     Game();
@@ -30,6 +38,13 @@ public:
     void update();
 
     bool isRunning() const {return running;}
+
+    // Provide accessors
+    SDL_Renderer* getRenderer() const { return renderer; }
+    TileMap* getTileMap() const { return tileMap; }
+
+    // The global list of entities (including the player)
+    std::vector<Entity*> entities;
 };
     
 #endif

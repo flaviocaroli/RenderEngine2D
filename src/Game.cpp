@@ -4,11 +4,6 @@
 #include "ResourceManager.hpp"
 #include <iostream>
 
-// store these so we can reference them when resizing the Game Window
-static const int tileWidth  = 32;
-static const int tileHeight = 32;
-
-
 Game::Game()
     :window(nullptr),
      renderer(nullptr),
@@ -72,6 +67,8 @@ bool Game::init(const std::string& title, int width, int height){
                         "../assets/Unarmed_Walk.png",
                         renderer, 50, 50, 128, 128);  
 
+    entities.push_back(player);
+
     return true;
 
 }
@@ -118,12 +115,27 @@ void Game::handleEvents(){
 }
 
 void Game::update(){
-    // Logic updates (NPc mmovements, physics, etc)
-    //camera motion according to player movement
+    // Logic updates (Character mmovements, collisions, camera)
+    
     if(player) {
 
+        //collision handling
+        int oldX = player->getX();
+        int oldY = player->getY();
+        
         player->update();
 
+        SDL_Rect box = {player->getX(), player->getY(),
+                          player->getW(), player->getH()};
+        bool collide = collisionManager.hasCollision(box, tileMap, entities, player);
+        if (collide){
+
+            player->setX(oldX);
+            player->setY(oldY);
+
+        }
+
+        //camera movement
         int windowW = 0, windowH = 0;
         SDL_GetWindowSize(window, &windowW, &windowH);
         //center camera on the player
@@ -161,8 +173,9 @@ void Game::render(){
         tileMap->render(cameraX, cameraY);
     }
 
-    if (player) {
-        player->render(cameraX, cameraY);
+    // Render all entities
+    for (auto& e : entities) {
+        e->render(cameraX, cameraY);
     }
 
     SDL_RenderPresent(renderer);
@@ -178,6 +191,12 @@ void Game::clean(){
 
     //Destroy textures
     ResourceManager::clear();
+
+    // Delete entities (including Player)
+    for (auto& e : entities) {
+        delete e;
+    }
+    entities.clear();
 
     if(renderer){
         SDL_DestroyRenderer(renderer);

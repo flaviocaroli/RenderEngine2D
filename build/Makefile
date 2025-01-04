@@ -129,6 +129,30 @@ FrammentiDiSogno/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/build
 .PHONY : FrammentiDiSogno/fast
 
+src/CollisionManager.o: src/CollisionManager.cpp.o
+.PHONY : src/CollisionManager.o
+
+# target to build an object file
+src/CollisionManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/CollisionManager.cpp.o
+.PHONY : src/CollisionManager.cpp.o
+
+src/CollisionManager.i: src/CollisionManager.cpp.i
+.PHONY : src/CollisionManager.i
+
+# target to preprocess a source file
+src/CollisionManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/CollisionManager.cpp.i
+.PHONY : src/CollisionManager.cpp.i
+
+src/CollisionManager.s: src/CollisionManager.cpp.s
+.PHONY : src/CollisionManager.s
+
+# target to generate assembly for a file
+src/CollisionManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/CollisionManager.cpp.s
+.PHONY : src/CollisionManager.cpp.s
+
 src/Entity.o: src/Entity.cpp.o
 .PHONY : src/Entity.o
 
@@ -282,6 +306,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... FrammentiDiSogno"
+	@echo "... src/CollisionManager.o"
+	@echo "... src/CollisionManager.i"
+	@echo "... src/CollisionManager.s"
 	@echo "... src/Entity.o"
 	@echo "... src/Entity.i"
 	@echo "... src/Entity.s"

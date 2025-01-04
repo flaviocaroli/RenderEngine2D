@@ -84,6 +84,7 @@ void Player::update() { //calculates the frame to use in the render function
     // Move according to velocity
     x += moveX;
     y += moveY;
+
     //Movement animation logic
     isMoving = (moveX != 0 || moveY != 0);
 

@@ -21,6 +21,10 @@ public:
 
     void loadMap(const std::vector<std::vector<int>>& mapData);
     void render(int offsetX, int offsetY);
+    int getWidth() const {return tileWidth;}
+    int getHeight() const {return tileHeight;}
+    int getRows() const;
+    int getCols() const;
 };
 
 

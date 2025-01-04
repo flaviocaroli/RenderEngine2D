@@ -18,6 +18,7 @@ add_executable(FrammentiDiSogno
     src/TileMap.cpp
     src/Entity.cpp
     src/Player.cpp
+    src/CollisionManager.cpp
 )
 
 target_include_directories(FrammentiDiSogno PUBLIC

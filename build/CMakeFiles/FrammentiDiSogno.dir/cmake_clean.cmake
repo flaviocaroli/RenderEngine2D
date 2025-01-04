@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/FrammentiDiSogno.dir/src/CollisionManager.cpp.o"
+  "CMakeFiles/FrammentiDiSogno.dir/src/CollisionManager.cpp.o.d"
   "CMakeFiles/FrammentiDiSogno.dir/src/Entity.cpp.o"
   "CMakeFiles/FrammentiDiSogno.dir/src/Entity.cpp.o.d"
   "CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o"
