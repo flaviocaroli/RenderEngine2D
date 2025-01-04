@@ -15,7 +15,7 @@ SDL_Texture* ResourceManager::getTexture(const std::string& file, SDL_Renderer* 
 
     SDL_Surface* surface = IMG_Load(file.c_str());
     if (!surface){
-        std::cerr << "failad to load image" << file << ":" << IMG_GetError() << "\n";
+        std::cerr << "failed to load image" << file << ":" << IMG_GetError() << "\n";
         return nullptr;
     }
 

@@ -22,9 +22,18 @@ bool CollisionManager::entityCollision(const SDL_Rect& box, const std::vector<En
             continue;
         }
         SDL_Rect other;
-        //more granular collision with trees
-        other = {entity->getX() +96, entity->getY() +160 ,
+        bool isNpc = entity->getW() == 128;
+        
+        if (isNpc){
+        //granular collision with NPCs
+            other = {entity->getX() +20, entity->getY() +72 ,
+                          entity->getW() -56, entity->getH() -80};
+        }
+        else{
+        //granular collision with trees
+            other = {entity->getX() +96, entity->getY() +160 ,
                           entity->getW() - 190, entity->getH() - 165 };
+        }
         if (SDL_HasIntersection(&box, &other)){
             return true;
         }

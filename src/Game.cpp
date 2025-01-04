@@ -67,8 +67,20 @@ bool Game::init(const std::string& title, int width, int height){
                         renderer, 50, 50, 128, 128);  
 
     // add elements to the map
+    ResourceManager::addStaticEntity("../assets/NPCs/orc1_idle.png", renderer, 230, 160, 128, 128); 
+    ResourceManager::addStaticEntity("../assets/NPCs/orc3_idle.png", renderer, 380, 160, 128, 128);
+    ResourceManager::addStaticEntity("../assets/NPCs/orc2_idle.png", renderer, 530, 160, 128, 128);
+
     ResourceManager:: addPlayer(player);
-    ResourceManager::addStaticEntity("../assets/world/Tree1.png", renderer, 400, 64, 256, 256);
+    
+    ResourceManager::addStaticEntity("../assets/world/Tree1.png", renderer, 100, 32, 256, 256);
+
+    ResourceManager::addStaticEntity("../assets/world/Christmas_tree1.png", renderer, 250, 32, 256, 256);
+
+    ResourceManager::addStaticEntity("../assets/world/Flower_tree1.png", renderer, 400, 32, 256, 256);
+    
+    
+
 
     return true;
 
