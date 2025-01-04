@@ -5,6 +5,7 @@
 #include <string>
 #include "TileMap.hpp"
 #include "Player.hpp"
+#include "Entity.hpp"
 #include "CollisionManager.hpp"
 
 class Game {

@@ -274,6 +274,7 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: \
  /usr/include/c++/11/array /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
  /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/CollisionManager.hpp \
+ /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/Entity.hpp \
  /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/ResourceManager.hpp \
  /usr/include/c++/11/unordered_map \
  /usr/include/c++/11/ext/aligned_buffer.h \

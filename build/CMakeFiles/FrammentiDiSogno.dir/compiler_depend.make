@@ -1045,6 +1045,7 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
   ../include/CollisionManager.hpp \
+  ../include/Entity.hpp \
   ../include/ResourceManager.hpp \
   /usr/include/c++/11/unordered_map \
   /usr/include/c++/11/ext/aligned_buffer.h \

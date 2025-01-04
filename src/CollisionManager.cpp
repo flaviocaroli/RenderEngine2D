@@ -21,8 +21,10 @@ bool CollisionManager::entityCollision(const SDL_Rect& box, std::vector<Entity*>
         if(entity == ignore){
             continue;
         }
-        SDL_Rect other = {entity->getX(), entity->getY(),
-                          entity->getW(), entity->getH()};
+        SDL_Rect other;
+        //more granular collision with trees
+        other = {entity->getX() +96, entity->getY() +160 ,
+                          entity->getW() - 190, entity->getH() - 165 };
         if (SDL_HasIntersection(&box, &other)){
             return true;
         }

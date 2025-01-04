@@ -1,6 +1,7 @@
 //Game.cpp
 
 #include "Game.hpp"
+#include "Entity.hpp"
 #include "ResourceManager.hpp"
 #include <iostream>
 
@@ -67,7 +68,12 @@ bool Game::init(const std::string& title, int width, int height){
                         "../assets/Unarmed_Walk.png",
                         renderer, 50, 50, 128, 128);  
 
+    // add elements to the map
+    Entity* tree1 = new Entity("../assets/Tree1.png",
+                       renderer, 400, 64, 256, 256);
+
     entities.push_back(player);
+    entities.push_back(tree1);
 
     return true;
 
@@ -124,9 +130,9 @@ void Game::update(){
         int oldY = player->getY();
         
         player->update();
-
-        SDL_Rect box = {player->getX(), player->getY(),
-                          player->getW(), player->getH()};
+        //adjust box to get more granular collision
+        SDL_Rect box = {player->getX() +48, player->getY() +96,
+                          player->getW() -96, player->getH() -96};
         bool collide = collisionManager.hasCollision(box, tileMap, entities, player);
         if (collide){
 
