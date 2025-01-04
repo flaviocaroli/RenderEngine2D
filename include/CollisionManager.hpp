@@ -9,11 +9,11 @@
 class CollisionManager{
 public:
     bool mapBoundaryCollision(const SDL_Rect& box, TileMap* tileMap);
-    bool entityCollision(const SDL_Rect& box, std::vector<Entity*>& entities, const Entity* ignore);
+    bool entityCollision(const SDL_Rect& box, const std::vector<Entity*>& entities, const Entity* ignore);
 
     //helper
     bool hasCollision(const SDL_Rect& box, TileMap* tileMap,
-                      std::vector<Entity*>& entities, const Entity* ignore );
+                      const std::vector<Entity*>& entities, const Entity* ignore );
 };
 
 #endif

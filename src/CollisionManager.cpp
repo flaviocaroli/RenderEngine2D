@@ -15,7 +15,7 @@ bool CollisionManager::mapBoundaryCollision(const SDL_Rect& box, TileMap* tileMa
     return false;
 }
 
-bool CollisionManager::entityCollision(const SDL_Rect& box, std::vector<Entity*>& entities, const Entity* ignore){
+bool CollisionManager::entityCollision(const SDL_Rect& box, const std::vector<Entity*>& entities, const Entity* ignore){
     for (auto& entity : entities){
 
         if(entity == ignore){
@@ -33,7 +33,7 @@ bool CollisionManager::entityCollision(const SDL_Rect& box, std::vector<Entity*>
 }
 
 bool CollisionManager::hasCollision(const SDL_Rect& box, TileMap* tileMap,
-                                    std::vector<Entity*>& entities, const Entity* ignore ){
+                                    const std::vector<Entity*>& entities, const Entity* ignore ){
     if (mapBoundaryCollision(box, tileMap)){
         return true;
     }

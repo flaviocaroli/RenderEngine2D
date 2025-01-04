@@ -1,8 +1,6 @@
 //Game.cpp
 
 #include "Game.hpp"
-#include "Entity.hpp"
-#include "ResourceManager.hpp"
 #include <iostream>
 
 Game::Game()
@@ -64,16 +62,13 @@ bool Game::init(const std::string& title, int width, int height){
 
     // Create the player at some position in world space (e.g., near top-left).
     // We'll assume each player sprite is also 32x32 for simplicity.
-    player = new Player("../assets/Unarmed_Idle.png",
-                        "../assets/Unarmed_Walk.png",
+    player = new Player("../assets/player/Unarmed_Idle.png",
+                        "../assets/player/Unarmed_Walk.png",
                         renderer, 50, 50, 128, 128);  
 
     // add elements to the map
-    Entity* tree1 = new Entity("../assets/Tree1.png",
-                       renderer, 400, 64, 256, 256);
-
-    entities.push_back(player);
-    entities.push_back(tree1);
+    ResourceManager:: addPlayer(player);
+    ResourceManager::addStaticEntity("../assets/world/Tree1.png", renderer, 400, 64, 256, 256);
 
     return true;
 
@@ -133,7 +128,7 @@ void Game::update(){
         //adjust box to get more granular collision
         SDL_Rect box = {player->getX() +48, player->getY() +96,
                           player->getW() -96, player->getH() -96};
-        bool collide = collisionManager.hasCollision(box, tileMap, entities, player);
+        bool collide = collisionManager.hasCollision(box, tileMap, ResourceManager::getEntities(), player);
         if (collide){
 
             player->setX(oldX);
@@ -180,7 +175,7 @@ void Game::render(){
     }
 
     // Render all entities
-    for (auto& e : entities) {
+    for (auto& e : ResourceManager::getEntities()) {
         e->render(cameraX, cameraY);
     }
 
@@ -195,14 +190,8 @@ void Game::clean(){
         tileMap = nullptr;
     }
 
-    //Destroy textures
+    //Destroy textures and entities
     ResourceManager::clear();
-
-    // Delete entities (including Player)
-    for (auto& e : entities) {
-        delete e;
-    }
-    entities.clear();
 
     if(renderer){
         SDL_DestroyRenderer(renderer);

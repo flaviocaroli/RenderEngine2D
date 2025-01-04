@@ -5,6 +5,7 @@
 
 
 std::unordered_map<std::string, SDL_Texture*> ResourceManager::textures;
+std::vector<Entity*> ResourceManager::entities;
 
 SDL_Texture* ResourceManager::getTexture(const std::string& file, SDL_Renderer* renderer){
 
@@ -30,11 +31,41 @@ SDL_Texture* ResourceManager::getTexture(const std::string& file, SDL_Renderer* 
 
 }
 
+const std::vector<Entity*>& ResourceManager::getEntities() {
+    return entities;
+}
+
+void ResourceManager::addPlayer(Player* player) {
+    if (player) {
+        entities.push_back(player);
+    } else {
+        std::cerr << "Failed to add player: nullptr provided" << std::endl;
+    }
+}
+
+void ResourceManager::addStaticEntity(const std::string& texturePath, SDL_Renderer* renderer, int x, int y, int w, int h){
+    SDL_Texture* texture = getTexture(texturePath, renderer);
+    if (texture){
+        Entity* entity = new Entity(texturePath, renderer, x, y, w, h);
+        entities.push_back(entity);
+    }
+    else {
+        std::cerr << "Failed to create entity with texture: " << texturePath << std::endl;
+
+    }
+}
+
+
 void ResourceManager::clear(){
     for (auto& tex : textures) {
         SDL_DestroyTexture(tex.second);
     }
     textures.clear();
+
+    for (auto& entity: entities){
+        delete entity;
+    }
+    entities.clear();
 
 }
 

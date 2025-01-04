@@ -7,6 +7,7 @@
 #include "Player.hpp"
 #include "Entity.hpp"
 #include "CollisionManager.hpp"
+#include "ResourceManager.hpp"
 
 class Game {
 private:
@@ -44,8 +45,6 @@ public:
     SDL_Renderer* getRenderer() const { return renderer; }
     TileMap* getTileMap() const { return tileMap; }
 
-    // The global list of entities (including the player)
-    std::vector<Entity*> entities;
 };
     
 #endif

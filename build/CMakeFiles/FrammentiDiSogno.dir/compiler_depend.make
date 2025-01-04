@@ -665,32 +665,21 @@ CMakeFiles/FrammentiDiSogno.dir/src/Entity.cpp.o: ../src/Entity.cpp \
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/c++/11/memory \
+  /usr/include/c++/11/vector \
   /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bit \
-  /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/typeinfo \
-  /usr/include/c++/11/bits/allocated_ptr.h \
-  /usr/include/c++/11/bits/refwrap.h \
-  /usr/include/c++/11/ext/concurrence.h \
-  /usr/include/c++/11/exception \
-  /usr/include/c++/11/bits/exception_ptr.h \
-  /usr/include/c++/11/bits/cxxabi_init_exception.h \
-  /usr/include/c++/11/bits/nested_exception.h \
-  /usr/include/c++/11/bits/shared_ptr_atomic.h \
-  /usr/include/c++/11/bits/atomic_base.h \
-  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/11/backward/auto_ptr.h \
-  /usr/include/c++/11/pstl/glue_memory_defs.h \
-  /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  ../include/Entity.hpp \
+  ../include/Player.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
+  /usr/include/c++/11/exception \
+  /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/typeinfo \
+  /usr/include/c++/11/bits/nested_exception.h \
   /usr/include/c++/11/bits/ios_base.h \
   /usr/include/c++/11/bits/locale_classes.h \
   /usr/include/c++/11/bits/locale_classes.tcc \
@@ -1045,7 +1034,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
   ../include/CollisionManager.hpp \
-  ../include/Entity.hpp \
   ../include/ResourceManager.hpp \
   /usr/include/c++/11/unordered_map \
   /usr/include/c++/11/ext/aligned_buffer.h \
@@ -1058,31 +1046,14 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: ../src/Game.cpp \
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/c++/11/memory \
-  /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bit \
-  /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/typeinfo \
-  /usr/include/c++/11/bits/allocated_ptr.h \
-  /usr/include/c++/11/bits/refwrap.h \
-  /usr/include/c++/11/ext/concurrence.h \
-  /usr/include/c++/11/exception \
-  /usr/include/c++/11/bits/exception_ptr.h \
-  /usr/include/c++/11/bits/cxxabi_init_exception.h \
-  /usr/include/c++/11/bits/nested_exception.h \
-  /usr/include/c++/11/bits/shared_ptr_atomic.h \
-  /usr/include/c++/11/bits/atomic_base.h \
-  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/11/backward/auto_ptr.h \
-  /usr/include/c++/11/pstl/glue_memory_defs.h \
-  /usr/include/c++/11/pstl/execution_defs.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
+  /usr/include/c++/11/exception \
+  /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/typeinfo \
+  /usr/include/c++/11/bits/nested_exception.h \
   /usr/include/c++/11/bits/ios_base.h \
   /usr/include/c++/11/bits/locale_classes.h \
   /usr/include/c++/11/bits/locale_classes.tcc \
@@ -1475,23 +1446,7 @@ CMakeFiles/FrammentiDiSogno.dir/src/Player.cpp.o: ../src/Player.cpp \
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/c++/11/memory \
-  /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bit \
-  /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/bits/allocated_ptr.h \
-  /usr/include/c++/11/bits/refwrap.h \
-  /usr/include/c++/11/ext/concurrence.h \
-  /usr/include/c++/11/bits/shared_ptr_atomic.h \
-  /usr/include/c++/11/bits/atomic_base.h \
-  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/11/backward/auto_ptr.h \
-  /usr/include/c++/11/pstl/glue_memory_defs.h \
-  /usr/include/c++/11/pstl/execution_defs.h
+  ../include/Player.hpp
 
 CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o: ../src/ResourceManager.cpp \
   /usr/include/stdc-predef.h \
@@ -1827,32 +1782,21 @@ CMakeFiles/FrammentiDiSogno.dir/src/ResourceManager.cpp.o: ../src/ResourceManage
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/c++/11/memory \
+  /usr/include/c++/11/vector \
   /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bit \
-  /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/typeinfo \
-  /usr/include/c++/11/bits/allocated_ptr.h \
-  /usr/include/c++/11/bits/refwrap.h \
-  /usr/include/c++/11/ext/concurrence.h \
-  /usr/include/c++/11/exception \
-  /usr/include/c++/11/bits/exception_ptr.h \
-  /usr/include/c++/11/bits/cxxabi_init_exception.h \
-  /usr/include/c++/11/bits/nested_exception.h \
-  /usr/include/c++/11/bits/shared_ptr_atomic.h \
-  /usr/include/c++/11/bits/atomic_base.h \
-  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/11/backward/auto_ptr.h \
-  /usr/include/c++/11/pstl/glue_memory_defs.h \
-  /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  ../include/Entity.hpp \
+  ../include/Player.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
+  /usr/include/c++/11/exception \
+  /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/typeinfo \
+  /usr/include/c++/11/bits/nested_exception.h \
   /usr/include/c++/11/bits/ios_base.h \
   /usr/include/c++/11/bits/locale_classes.h \
   /usr/include/c++/11/bits/locale_classes.tcc \
@@ -2215,31 +2159,16 @@ CMakeFiles/FrammentiDiSogno.dir/src/TileMap.cpp.o: ../src/TileMap.cpp \
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/c++/11/memory \
-  /usr/include/c++/11/bits/stl_tempbuf.h \
-  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/11/bits/align.h \
-  /usr/include/c++/11/bit \
-  /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/typeinfo \
-  /usr/include/c++/11/bits/allocated_ptr.h \
-  /usr/include/c++/11/bits/refwrap.h \
-  /usr/include/c++/11/ext/concurrence.h \
-  /usr/include/c++/11/exception \
-  /usr/include/c++/11/bits/exception_ptr.h \
-  /usr/include/c++/11/bits/cxxabi_init_exception.h \
-  /usr/include/c++/11/bits/nested_exception.h \
-  /usr/include/c++/11/bits/shared_ptr_atomic.h \
-  /usr/include/c++/11/bits/atomic_base.h \
-  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
-  /usr/include/c++/11/backward/auto_ptr.h \
-  /usr/include/c++/11/pstl/glue_memory_defs.h \
-  /usr/include/c++/11/pstl/execution_defs.h \
+  ../include/Entity.hpp \
+  ../include/Player.hpp \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
+  /usr/include/c++/11/exception \
+  /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/typeinfo \
+  /usr/include/c++/11/bits/nested_exception.h \
   /usr/include/c++/11/bits/ios_base.h \
   /usr/include/c++/11/bits/locale_classes.h \
   /usr/include/c++/11/bits/locale_classes.tcc \
@@ -2622,7 +2551,19 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/array \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
-  ../include/CollisionManager.hpp
+  ../include/CollisionManager.hpp \
+  ../include/ResourceManager.hpp \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h
 
 
 ../src/main.cpp:
@@ -2655,37 +2596,13 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/ios_base.h:
 
-/usr/include/c++/11/ostream:
-
-/usr/include/c++/11/pstl/glue_memory_defs.h:
-
-/usr/include/c++/11/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/11/bits/atomic_base.h:
-
 /usr/include/c++/11/bits/nested_exception.h:
 
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
 /usr/include/c++/11/bits/exception_ptr.h:
 
-/usr/include/c++/11/ext/concurrence.h:
-
-/usr/include/c++/11/bits/refwrap.h:
-
-/usr/include/c++/11/bits/allocated_ptr.h:
-
-/usr/include/c++/11/bits/unique_ptr.h:
-
-/usr/include/c++/11/bit:
-
-/usr/include/c++/11/bits/align.h:
-
-/usr/include/c++/11/bits/stl_raw_storage_iter.h:
-
-/usr/include/c++/11/bits/stl_tempbuf.h:
-
-/usr/include/c++/11/memory:
+/usr/include/c++/11/ostream:
 
 /usr/include/c++/11/bits/uses_allocator.h:
 
@@ -2739,8 +2656,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/bits/functional_hash.h:
 
-/usr/include/c++/11/bits/shared_ptr.h:
-
 /usr/include/c++/11/bits/stl_construct.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
@@ -2771,8 +2686,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/c++/11/ext/atomicity.h:
 
-/usr/include/c++/11/bits/shared_ptr_base.h:
-
 /usr/include/c++/11/bits/basic_string.h:
 
 /usr/include/c++/11/backward/binders.h:
@@ -2800,8 +2713,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/cwchar:
 
 /usr/include/c++/11/bits/char_traits.h:
-
-/usr/include/c++/11/bits/shared_ptr_atomic.h:
 
 /usr/include/SDL2/SDL_clipboard.h:
 
@@ -3107,8 +3018,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/ctype.h:
 
-/usr/include/c++/11/pstl/execution_defs.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/xsavesintrin.h:
 
 /usr/include/c++/11/typeinfo:
@@ -3358,8 +3267,6 @@ CMakeFiles/FrammentiDiSogno.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/vpclmulqdqintrin.h:
-
-/usr/include/c++/11/backward/auto_ptr.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512bf16intrin.h:
 
