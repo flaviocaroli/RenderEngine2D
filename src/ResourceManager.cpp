@@ -43,6 +43,15 @@ void ResourceManager::addPlayer(Player* player) {
     }
 }
 
+void ResourceManager::addNPC(NPC* npc) {
+    if (npc) {
+        entities.push_back(npc);
+    } else {
+        std::cerr << "Failed to add NPC: nullptr provided" << std::endl;
+    }
+}
+
+
 void ResourceManager::addStaticEntity(const std::string& texturePath, SDL_Renderer* renderer, int x, int y, int w, int h){
     SDL_Texture* texture = getTexture(texturePath, renderer);
     if (texture){

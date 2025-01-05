@@ -52,3 +52,28 @@ bool CollisionManager::hasCollision(const SDL_Rect& box, TileMap* tileMap,
 
     return false;               
 }
+
+Entity* CollisionManager::getCollidingEntity(const SDL_Rect& box, const std::vector<Entity*>& entities, const Entity* ignore) {
+    for (auto& entity : entities) {
+        if (entity == ignore) {
+            continue;
+        }
+        //same as before, just change the return
+        SDL_Rect other;
+        bool isNpc = entity->getW() == 128;
+
+        if (isNpc) {
+            other = {entity->getX() + 20, entity->getY() + 72,
+                     entity->getW() - 56, entity->getH() - 80};
+        } else {
+            
+            other = {entity->getX() + 96, entity->getY() + 160,
+                     entity->getW() - 190, entity->getH() - 165};
+        }
+
+        if (SDL_HasIntersection(&box, &other)) {
+            return entity; 
+        }
+    }
+    return nullptr; 
+}

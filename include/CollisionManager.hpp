@@ -14,6 +14,8 @@ public:
     //helper
     bool hasCollision(const SDL_Rect& box, TileMap* tileMap,
                       const std::vector<Entity*>& entities, const Entity* ignore );
+    Entity* getCollidingEntity(const SDL_Rect& box, const std::vector<Entity*>& entities, const Entity* ignore);
+
 };
 
 #endif

@@ -153,6 +153,30 @@ src/CollisionManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/CollisionManager.cpp.s
 .PHONY : src/CollisionManager.cpp.s
 
+src/Dialogue.o: src/Dialogue.cpp.o
+.PHONY : src/Dialogue.o
+
+# target to build an object file
+src/Dialogue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Dialogue.cpp.o
+.PHONY : src/Dialogue.cpp.o
+
+src/Dialogue.i: src/Dialogue.cpp.i
+.PHONY : src/Dialogue.i
+
+# target to preprocess a source file
+src/Dialogue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Dialogue.cpp.i
+.PHONY : src/Dialogue.cpp.i
+
+src/Dialogue.s: src/Dialogue.cpp.s
+.PHONY : src/Dialogue.s
+
+# target to generate assembly for a file
+src/Dialogue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FrammentiDiSogno.dir/build.make CMakeFiles/FrammentiDiSogno.dir/src/Dialogue.cpp.s
+.PHONY : src/Dialogue.cpp.s
+
 src/Entity.o: src/Entity.cpp.o
 .PHONY : src/Entity.o
 
@@ -309,6 +333,9 @@ help:
 	@echo "... src/CollisionManager.o"
 	@echo "... src/CollisionManager.i"
 	@echo "... src/CollisionManager.s"
+	@echo "... src/Dialogue.o"
+	@echo "... src/Dialogue.i"
+	@echo "... src/Dialogue.s"
 	@echo "... src/Entity.o"
 	@echo "... src/Entity.i"
 	@echo "... src/Entity.s"

@@ -22,14 +22,22 @@ bool Game::init(const std::string& title, int width, int height){
         std::cerr << "SDL did not initialize" << SDL_GetError() << "\n";
         return false;
     } 
+
+    if (TTF_Init() == -1) {
+        std::cerr << "SDL_ttf did not initialize: " << TTF_GetError() << "\n";
+        return false;
+    }
+
     window = SDL_CreateWindow(title.c_str(),
                               SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                               width, height,
                               SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE); //to make the window resizable
+
     if (!window){
         std::cerr <<"SDL did not create window"<<SDL_GetError() << "\n";
         return false;
     }
+
     renderer = SDL_CreateRenderer(window, -1,
                                   SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if(!renderer){
@@ -39,7 +47,7 @@ bool Game::init(const std::string& title, int width, int height){
 
     running = true;
 
-    tileMap = new TileMap(renderer, "../assets/FieldsTileset.png", 32, 32);
+    tileMap = new TileMap(renderer, "../assets/world/FieldsTileset.png", 32, 32);
 
     // At init, fill the map to match the initial window size
     int windowW = 0;
@@ -67,9 +75,16 @@ bool Game::init(const std::string& title, int width, int height){
                         renderer, 50, 50, 128, 128);  
 
     // add elements to the map
-    ResourceManager::addStaticEntity("../assets/NPCs/orc1_idle.png", renderer, 230, 160, 128, 128); 
-    ResourceManager::addStaticEntity("../assets/NPCs/orc3_idle.png", renderer, 380, 160, 128, 128);
-    ResourceManager::addStaticEntity("../assets/NPCs/orc2_idle.png", renderer, 530, 160, 128, 128);
+    NPC* orc1 = new NPC("../assets/NPCs/orc1_idle.png", renderer, 230, 160, 128, 128, "../assets/utils/MovistarFont.ttf");
+    NPC* orc2 = new NPC("../assets/NPCs/orc2_idle.png", renderer, 380, 160, 128, 128, "../assets/utils/MovistarFont.ttf");
+    NPC* orc3 = new NPC("../assets/NPCs/orc3_idle.png", renderer, 530, 160, 128, 128, "../assets/utils/MovistarFont.ttf");
+
+    orc1->getDialogue().addLine("Hello, traveler!");
+    orc2->getDialogue().addLine("Beware of the dangers ahead.");
+    orc3->getDialogue().addLine("Good luck on your journey!");
+    ResourceManager::addNPC(orc1);
+    ResourceManager::addNPC(orc2); 
+    ResourceManager::addNPC(orc3);
 
     ResourceManager:: addPlayer(player);
     
@@ -86,33 +101,87 @@ bool Game::init(const std::string& title, int width, int height){
 
 }
 
-void Game::handleEvents(){
+void Game::handleEvents() {
     SDL_Event event;
-    while(SDL_PollEvent(&event)){
-        switch(event.type){
+    while (SDL_PollEvent(&event)) {
+        switch (event.type) {
             case SDL_QUIT:
                 running = false;
                 break;
-            case SDL_KEYDOWN:
-            case SDL_KEYUP:
-                if(player) {
+
+            // Handle key presses
+            case SDL_KEYDOWN: {
+                if (player) {
+                    // Let the player handle movement (WASD, arrow keys, etc.)
+                    player->handleEvent(event);
+
+                    // --- INTERACTIONS WITH THE WORLD ---
+
+                    // 1) Start dialogue if E is pressed
+                    if (event.key.keysym.sym == SDLK_e) {      
+                        SDL_Rect box = {
+                            player->getX() + 48,
+                            player->getY() + 96,
+                            player->getW() - 96,
+                            player->getH() - 96
+                        };
+
+                        // Check collision with any entity
+                        bool collide = collisionManager.hasCollision(
+                            box,
+                            tileMap,
+                            ResourceManager::getEntities(),
+                            player
+                        );
+
+                        if (collide) {
+                            Entity* entity = collisionManager.getCollidingEntity(
+                                box,
+                                ResourceManager::getEntities(),
+                                player
+                            );
+                            NPC* npc = dynamic_cast<NPC*>(entity);
+                            if (npc) {
+                                npc->getDialogue().start();
+                            }
+                        }
+                    }
+                    // 2) Advance dialogue if SPACE is pressed
+                    else if (event.key.keysym.sym == SDLK_SPACE) {
+                        // If any NPC currently has active dialogue, move to the next line
+                        for (auto& entity : ResourceManager::getEntities()) {
+                            NPC* npc = dynamic_cast<NPC*>(entity);
+                            if (npc && npc->getDialogue().isActive()) {
+                                npc->getDialogue().next();
+                            }
+                        }
+                    }
+                }
+            } break;
+
+            // Handle key releases
+            case SDL_KEYUP: {
+                if (player) {
+                    // Let the player handle key release logic (e.g. stopping movement)
                     player->handleEvent(event);
                 }
-                break;
-            //to resize window
-            case SDL_WINDOWEVENT:
+            } break;
 
+            // Handle window events (like resizing)
+            case SDL_WINDOWEVENT: {
                 if (event.window.event == SDL_WINDOWEVENT_RESIZED) {
                     int newW = event.window.data1;
                     int newH = event.window.data2;
 
-                    // Recalculate map size for the new window dimensions
+                    // Recalculate how many tiles fit in the new window
                     int tilesWide = newW / tileWidth;
                     int tilesHigh = newH / tileHeight;
 
-                    // Build new mapData and reload
-                    std::vector<std::vector<int>> mapData(tilesHigh,
-                                            std::vector<int>(tilesWide));
+                    // Build new map data and reload
+                    std::vector<std::vector<int>> mapData(
+                        tilesHigh,
+                        std::vector<int>(tilesWide)
+                    );
                     for (int row = 0; row < tilesHigh; ++row) {
                         for (int col = 0; col < tilesWide; ++col) {
                             mapData[row][col] = (row * tilesWide + col) % 64;
@@ -120,8 +189,9 @@ void Game::handleEvents(){
                     }
                     tileMap->loadMap(mapData);
                 }
-                break;
-            default: 
+            } break;
+
+            default:
                 break;
         }
     }
@@ -214,5 +284,6 @@ void Game::clean(){
         window = nullptr;
     }
 
+    TTF_Quit();
     SDL_Quit();
 }

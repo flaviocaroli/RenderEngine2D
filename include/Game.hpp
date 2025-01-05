@@ -8,6 +8,7 @@
 #include "Entity.hpp"
 #include "CollisionManager.hpp"
 #include "ResourceManager.hpp"
+#include "NPC.hpp"
 
 class Game {
 private:

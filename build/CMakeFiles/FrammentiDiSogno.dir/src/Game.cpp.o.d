@@ -284,7 +284,10 @@ CMakeFiles/FrammentiDiSogno.dir/src/Game.cpp.o: \
  /usr/include/c++/11/bits/enable_special_members.h \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
- /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/iostream \
+ /usr/include/c++/11/bits/erase_if.h \
+ /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/NPC.hpp \
+ /mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/include/Dialogue.hpp \
+ /usr/include/SDL2/SDL_ttf.h /usr/include/c++/11/iostream \
  /usr/include/c++/11/ostream /usr/include/c++/11/ios \
  /usr/include/c++/11/exception /usr/include/c++/11/bits/exception_ptr.h \
  /usr/include/c++/11/bits/cxxabi_init_exception.h \

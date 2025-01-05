@@ -75,6 +75,7 @@ void Player::handleEvent(const SDL_Event& e) {
                 }
                 break;
             default: break;
+            
         }
     }
 }

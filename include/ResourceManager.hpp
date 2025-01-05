@@ -9,6 +9,7 @@
 #include <vector>
 #include "Entity.hpp"
 #include "Player.hpp"
+#include "NPC.hpp"
 
 class ResourceManager{
     private:
@@ -18,6 +19,7 @@ class ResourceManager{
         static SDL_Texture* getTexture(const std::string& file, SDL_Renderer* renderer);
         static void addStaticEntity(const std::string& texturePath, SDL_Renderer* renderer, int x, int y, int w, int h);
         static void addPlayer(Player* player);
+        static void addNPC(NPC* npc);
         static const std::vector<Entity*>& getEntities();
         static void clear();
 
