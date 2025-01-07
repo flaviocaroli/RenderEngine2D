@@ -9,14 +9,16 @@
 //since i have a file with 4 rows for sprites
 enum class Direction {
     DOWN = 0,
-    LEFT = 1,
+    UP = 1,
     RIGHT = 2, 
-    UP = 3,
+    LEFT = 3,
 };
 
 enum class AnimationState{
-    IDLE,
-    WALK,
+    IDLE = 0,
+    WALK = 1,
+    RUN = 2,
+    JUMP = 3,
     //In future can add run, fight etc
 };
 
@@ -24,20 +26,23 @@ class Player : public Entity {
 private:
     int moveX;
     int moveY;
-    int speed;
+    int baseSpeed;
+    int runSpeed;
 
     //animation logic
     Direction currentDir;
     AnimationState currentAnim;
-    bool isMoving;
-
-    // The two textures
-    SDL_Texture* idleTexture;
-    SDL_Texture* walkTexture;
     
+    bool isMoving;
+    int isRunning;
+
+    bool isJumping;
+
+    // texture 
+    SDL_Texture* texture;
 
     int currentFrame;
-    std::array<int, 2> frameCount; //how many frames per implemented animations
+    std::array<int, 4> frameCount; //how many frames per implemented animations
     int frameWidth;
     int frameHeight;
 
@@ -49,8 +54,7 @@ private:
     void updateAnim();
 
 public:
-    Player(const std::string& idle_path,
-           const std::string& walk_path,
+    Player(const std::string& texture_path,
            SDL_Renderer* renderer, int x, int y, int w, int h);
     void handleEvent(const SDL_Event& e);
     void update() override; // update based on velocity

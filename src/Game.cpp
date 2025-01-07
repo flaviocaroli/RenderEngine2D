@@ -70,8 +70,7 @@ bool Game::init(const std::string& title, int width, int height){
 
     // Create the player at some position in world space (e.g., near top-left).
     // We'll assume each player sprite is also 32x32 for simplicity.
-    player = new Player("../assets/player/Unarmed_Idle.png",
-                        "../assets/player/Unarmed_Walk.png",
+    player = new Player("../assets/player/animations_sprites.png",
                         renderer, 50, 50, 128, 128);  
 
     // add elements to the map
