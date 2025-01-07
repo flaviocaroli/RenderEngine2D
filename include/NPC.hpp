@@ -18,9 +18,6 @@ class NPC : public Entity{
 
         void render(int cameraX, int cameraY) override{
             Entity::render(cameraX, cameraY);
-            if (dialogue.isActive()){
-                dialogue.render(getX(), getY(), getW(), getH(), cameraX, cameraY);
-            }
         }
 };
 

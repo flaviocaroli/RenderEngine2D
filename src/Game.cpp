@@ -80,8 +80,8 @@ bool Game::init(const std::string& title, int width, int height){
     NPC* orc3 = new NPC("../assets/NPCs/orc3_idle.png", renderer, 530, 160, 128, 128, "../assets/utils/MovistarFont.ttf");
 
     orc1->getDialogue().addLine("Hello, traveler!");
-    orc2->getDialogue().addLine("Beware of the dangers ahead.");
-    orc3->getDialogue().addLine("Good luck on your journey!");
+    orc2->getDialogue().addLine("Beware of the exams ahead.");
+    orc3->getDialogue().addLine("You will get a good grade!");
     ResourceManager::addNPC(orc1);
     ResourceManager::addNPC(orc2); 
     ResourceManager::addNPC(orc3);
@@ -120,10 +120,10 @@ void Game::handleEvents() {
                     // 1) Start dialogue if E is pressed
                     if (event.key.keysym.sym == SDLK_e) {      
                         SDL_Rect box = {
-                            player->getX() + 48,
-                            player->getY() + 96,
-                            player->getW() - 96,
-                            player->getH() - 96
+                            player->getX() + 32 ,
+                            player->getY() + 64,
+                            player->getW() - 64,
+                            player->getH() -64
                         };
 
                         // Check collision with any entity
@@ -142,8 +142,20 @@ void Game::handleEvents() {
                             );
                             NPC* npc = dynamic_cast<NPC*>(entity);
                             if (npc) {
+                                // debug print
+                                //std::cout << "[Game] 'E' pressed - Found NPC! Starting dialogue.\n";
+
                                 npc->getDialogue().start();
                             }
+                            else{
+                                //debug print
+                                // std::cout << "[Game] 'E' pressed - Collided but not with NPC.\n";
+
+                            }
+                        }
+                        else{
+                            //debug print
+                            std::cout << "[Game] 'E' pressed - No collision.\n";
                         }
                     }
                     // 2) Advance dialogue if SPACE is pressed
@@ -248,17 +260,30 @@ void Game::update(){
 
 void Game::render(){
     //clear Screen
-    SDL_SetRenderDrawColor(renderer, 50,50,50,255);
+    // 1) Clear Screen
+    SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255); // Dark gray BG
     SDL_RenderClear(renderer);
 
-    //TODO : render game objects
-    if(tileMap){
+    // 2) Draw TileMap (background)
+    if (tileMap) {
         tileMap->render(cameraX, cameraY);
     }
 
-    // Render all entities
+    // 3) Draw Entities (player, NPCs, trees, etc.)
     for (auto& e : ResourceManager::getEntities()) {
         e->render(cameraX, cameraY);
+    }
+
+    // 4) draw dialogues
+    for (auto& e : ResourceManager::getEntities()) {
+        NPC* npc = dynamic_cast<NPC*>(e);
+        if (npc && npc->getDialogue().isActive()) {
+            npc->getDialogue().render(
+                npc->getX(), npc->getY(),
+                npc->getW(), npc->getH(),
+                cameraX, cameraY
+            );
+        }
     }
 
     SDL_RenderPresent(renderer);

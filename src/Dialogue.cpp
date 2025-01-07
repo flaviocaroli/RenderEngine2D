@@ -33,17 +33,19 @@ void Dialogue::render(int characterX, int characterY, int characterW, int charac
     }
 
     // Calculate dialogue box position relative to character
-    //dialogueBox.x = characterX - cameraX + (characterW / 2) - (dialogueBox.w / 2);
-    dialogueBox.x = 200;
-    dialogueBox.y = 200;
-    //dialogueBox.y = characterY - cameraY - dialogueBox.h - 10;
+    dialogueBox.x = characterX - cameraX + (characterW / 2) - (dialogueBox.w / 2);
+    dialogueBox.y = characterY - cameraY - dialogueBox.h - 10;
+    //debug variables
+    //dialogueBox.x = 200;
+    //dialogueBox.y = 200;
+    
 
-    // Draw dialogue box
+    // dialogue box
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White box
     SDL_RenderFillRect(renderer, &dialogueBox);
 
-    // Load font
-    TTF_Font* font = TTF_OpenFont(fontPath.c_str(), 24);
+    // load font with its dimension
+    TTF_Font* font = TTF_OpenFont(fontPath.c_str(), 20);
     if (!font) {
         std::cerr << "Failed to load font: " << TTF_GetError() << std::endl;
         return;
@@ -51,7 +53,7 @@ void Dialogue::render(int characterX, int characterY, int characterW, int charac
 
     // Render text
     SDL_Color textColor = {0, 0, 0, 255}; // Black text
-    SDL_Surface* textSurface = TTF_RenderText_Blended(font, lines[currentLine].c_str(), textColor);
+    SDL_Surface* textSurface = TTF_RenderText_Blended_Wrapped(font, lines[currentLine].c_str(), textColor, dialogueBox.w -10);
     if (!textSurface) {
         std::cerr << "Failed to create text surface: " << TTF_GetError() << std::endl;
         TTF_CloseFont(font);
