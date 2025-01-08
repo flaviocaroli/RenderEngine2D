@@ -10,7 +10,7 @@ Entity::Entity(const std::string& texture_id, SDL_Renderer* renderer, int x, int
 {
     texture = ResourceManager::getTexture(texture_id, renderer);
     if(!texture){
-        std::cerr << " error in loading entity" << texture_id << "\n";
+        // std::cerr << " error in loading entity" << texture_id << "\n";
  
     }
 }
