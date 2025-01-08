@@ -126,7 +126,7 @@ void Player::handleEvent(const SDL_Event& e) {
 
 void Player::update() { //calculates the frame to use in the render function
     // Move according to velocity
-    int currentSpeed = (isRunning && !isJumping) ? runSpeed : baseSpeed;
+    int currentSpeed = isRunning ? runSpeed : baseSpeed;
     x += moveX;
     y += moveY;
 
@@ -138,7 +138,7 @@ void Player::update() { //calculates the frame to use in the render function
     
     Uint32 animSpeed = frameTime;  // default = 100
     if (currentAnim == AnimationState::RUN) {
-        animSpeed = 200;           // run faster load of frames
+        animSpeed = 150;           // run faster load of frames
     } 
     else{
         animSpeed = 100;
@@ -214,6 +214,7 @@ void Player::render(int cameraX, int cameraY){
     dstRect.y = y - cameraY;
     dstRect.w = w; 
     dstRect.h = h;  
+
 
     SDL_RenderCopy(renderer, texture, &srcRect, &dstRect);
 }

@@ -79,8 +79,9 @@ bool Game::init(const std::string& title, int width, int height){
     NPC* orc3 = new NPC("../assets/NPCs/orc3_idle.png", renderer, 530, 160, 128, 128, "../assets/utils/MovistarFont.ttf");
 
     orc1->getDialogue().addLine("Hello, traveler!");
+    orc1->getDialogue().addLine("You can run pressing 'SPACE'!");
     orc2->getDialogue().addLine("Beware of the exams ahead.");
-    orc3->getDialogue().addLine("You will get a good grade!");
+    orc3->getDialogue().addLine("You will get good grades!");
     ResourceManager::addNPC(orc1);
     ResourceManager::addNPC(orc2); 
     ResourceManager::addNPC(orc3);
