@@ -7,35 +7,34 @@
 #include "ResourceManager.hpp"
 
 
-Player::Player(const std::string& idle_path,
-               const std::string& walk_path, 
+Player::Player(const std::string& texture_path,
                SDL_Renderer* renderer, int x, int y, int w, int h)
     : Entity("", renderer, x, y, w, h),
       moveX(0),
       moveY(0),
-      speed(1),
+      baseSpeed(1),
+      runSpeed(2),
       currentDir(Direction::DOWN),
       currentAnim(AnimationState::IDLE),
       isMoving(false),
+      isRunning(false),
+      isJumping(false),
       currentFrame(0),
-      idleTexture(nullptr),
-      walkTexture(nullptr),
+      texture(nullptr),  
       frameWidth(64),
       frameHeight(64),
-      frameTime(100),     // 120 ms per frame, for instance
+      frameTime(100),     
       lastFrameTick(0)
 
 {   
-    frameCount[0] = 2;
-    frameCount[1] = 6;
-    idleTexture = ResourceManager::getTexture(idle_path, renderer);
-    walkTexture = ResourceManager::getTexture(walk_path, renderer);
+    frameCount[0] = 1; // IDLE: 1 frame for each direction
+    frameCount[1] = 6; // WALK: 6 frames for each direction
+    frameCount[2] = 2; // RUN: 2 frames for each direction
+    frameCount[3] = 4; // JUMP: 4 frames for each direction
+    texture = ResourceManager::getTexture(texture_path, renderer);
 
-    if(!walkTexture){
-        std::cerr << "Failed to load sprite" << walk_path << "\n";
-    }
-    if(!idleTexture){
-        std::cerr << "Failed to load sprite" << idle_path << "\n";
+    if(!texture){
+        std::cerr << "Failed to load sprite" << texture_path << "\n";
     }
     
 }
@@ -44,12 +43,41 @@ void Player::handleEvent(const SDL_Event& e) {
     // Key down (press)
     if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
         switch (e.key.keysym.sym) {
-            case SDLK_w: moveY = -speed; break; // up
-            case SDLK_a: moveX = -speed; break; // left
-            case SDLK_s: moveY =  speed; break; // down
-            case SDLK_d: moveX =  speed; break; // right
+            case SDLK_w: moveY = -baseSpeed; break; // up
+            case SDLK_a: moveX = -baseSpeed; break; // left
+            case SDLK_s: moveY =  baseSpeed; break; // down
+            case SDLK_d: moveX =  baseSpeed; break; // right
+
+
+            //RUN 
+
+            case SDLK_SPACE:
+                // Only start running if already moving
+                if (moveX != 0 || moveY != 0){
+                    isRunning = true;
+                    if (moveY <0){
+                        moveY = -runSpeed;
+                    }
+                    else if (moveY > 0){
+                        moveY = runSpeed;
+                    }
+                    else{
+                        moveY = 0;
+                    }
+                    moveX = (moveX <0)? -runSpeed : (moveX > 0) ? runSpeed : 0;
+                    //moveY = (moveY < 0) ? -runSpeed : (moveY > 0) ? runSpeed : 0;
+                }
+                break;
+
+            case SDLK_j:
+                // Only jump if moving and not already jumping
+                if (moveX != 0 || moveY != 0 && !isJumping) {
+                    isJumping = true;
+                }
+                break;
             default: break;
         }
+
     }
     // Key up (release)
     else if (e.type == SDL_KEYUP && e.key.repeat == 0) {
@@ -74,6 +102,21 @@ void Player::handleEvent(const SDL_Event& e) {
                     moveX = 0;
                 }
                 break;
+            
+            case SDLK_SPACE: 
+                isRunning = false;
+                if (moveX != 0 ){
+                    moveX = (moveX< 0) ? -baseSpeed : baseSpeed;
+                }
+                if (moveY != 0){
+                    moveY = (moveY < 0) ? -baseSpeed: baseSpeed;
+                }
+                break;
+
+            case SDLK_j:
+                isJumping = false;
+                break;
+
             default: break;
             
         }
@@ -83,6 +126,7 @@ void Player::handleEvent(const SDL_Event& e) {
 
 void Player::update() { //calculates the frame to use in the render function
     // Move according to velocity
+    int currentSpeed = isRunning ? runSpeed : baseSpeed;
     x += moveX;
     y += moveY;
 
@@ -91,50 +135,71 @@ void Player::update() { //calculates the frame to use in the render function
 
     updateDir();
     updateAnim();
-
+    
+    Uint32 animSpeed = frameTime;  // default = 100
+    if (currentAnim == AnimationState::RUN) {
+        animSpeed = 150;           // run faster load of frames
+    } 
+    else{
+        animSpeed = 100;
+    }
     //Animation
     if (isMoving){
         Uint32 now = SDL_GetTicks(); // time in ms since SDL init
         //now - lastFrameTick is the amount of time that has passed since we last updated the animation frame
-        if (now - lastFrameTick >= frameTime) {
+        if (now - lastFrameTick >= animSpeed) {
             //advance to next frame
             lastFrameTick = now;
 
-            int total;
-            if (currentAnim == AnimationState::IDLE){
-                total = frameCount[0];
-            }
-            else if (currentAnim == AnimationState::WALK){
-                total = frameCount[1];
-            }
-
+            int total = frameCount[static_cast<int>(currentAnim)];
+            
             currentFrame = (currentFrame + 1) % total; 
-            // cycles 0->1->2->...->7->0->...
+            // cycles 0->1->2->...->5->0->...
         }
     }
-    else{
+    if (!isMoving) {
         currentFrame = 0;
     }   
 }
 
 void Player::render(int cameraX, int cameraY){
-    
-    SDL_Texture* currentTex = nullptr;
-
-    if (currentAnim == AnimationState::IDLE){
-            currentTex = idleTexture;
-        }
-    else if (currentAnim == AnimationState::WALK){
-            currentTex = walkTexture;
-        }
-
-    if (!currentTex) return;
 
 
     // Convert currentDirection to row index
-    // We'll assume row order: 0=DOWN, 1=LEFT, 2=RIGHT, 3=UP
     int rowIndex = static_cast<int>(currentDir);
-    int colIndex = currentFrame;
+    int colIndex = 0;
+    
+    // Adjust column based on animation state
+    switch(currentAnim) {
+
+        case AnimationState::IDLE:
+            colIndex = 0;
+            break;
+        case AnimationState::WALK:
+            colIndex = currentFrame;
+            rowIndex += 4; // Walk animations start at row 4
+            break;
+            
+        /* 
+        case AnimationState::PUSH:
+            colIndex = currentFrame;
+            rowIndex += 0; // Push animations are in first set of rows
+            break;
+        case AnimationState::PULL:
+            colIndex = currentFrame + 3; // Pull frames start after push frames
+            rowIndex += 0;
+            break; 
+        */
+
+        case AnimationState::JUMP:
+            colIndex = currentFrame + 5; // Jump frames start after pull frames
+            rowIndex += 0;
+            break;
+        case AnimationState::RUN:
+            colIndex = currentFrame + 6;
+            rowIndex += 4; // Run animations use walk rows but different frames
+            break;
+    }
 
     SDL_Rect srcRect;
     srcRect.x = colIndex * frameWidth; //from the texture image gets the sprite to display
@@ -150,7 +215,8 @@ void Player::render(int cameraX, int cameraY){
     dstRect.w = w; 
     dstRect.h = h;  
 
-    SDL_RenderCopy(renderer, currentTex, &srcRect, &dstRect);
+
+    SDL_RenderCopy(renderer, texture, &srcRect, &dstRect);
 }
 
 void Player::updateDir()
@@ -177,11 +243,18 @@ void Player::updateDir()
 
 void Player::updateAnim()
 {
-    if(isMoving){
-        currentAnim = AnimationState::WALK;
-    }
-    else{
+    if (!isMoving) {
         currentAnim = AnimationState::IDLE;
+        return;
+    }
+
+    // Prioritize jumping over other states
+    if (isJumping) {
+        currentAnim = AnimationState::JUMP;
+    } else if (isRunning) {
+        currentAnim = AnimationState::RUN;
+    } else {
+        currentAnim = AnimationState::WALK;
     }
 }
 
