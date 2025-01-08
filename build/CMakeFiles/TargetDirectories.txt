@@ -1,3 +1,0 @@
-/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles/FrammentiDiSogno.dir
-/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/hp/Desktop/RenderEngine2D/RenderEngine2D/build/CMakeFiles/rebuild_cache.dir
